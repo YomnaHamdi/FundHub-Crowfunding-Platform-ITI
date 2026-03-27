@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Details</title>
+    <link rel="stylesheet" href="css/camagin-details.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="userdashboard.html">⬅Back to Dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="campaignDetails">
+            <h2 id="title">Loading...</h2>
+            <img id="image" src="" alt="Campaign Image" style="width:100%;max-width:400px;height:auto;">
+            <p id="description"></p>
+            <p><strong>Goal:</strong> $<span id="goal"></span></p>
+            <p><strong>Deadline:</strong> <span id="deadline"></span></p>
+            <p><strong>Category:</strong> <span id="category"></span></p>
+            <h3>Pledges</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="pledgeTableBody">
+                    <tr><td colspan="4">Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/campaign-details.js"></script>
+</body>
+</html>

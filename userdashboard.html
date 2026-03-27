@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard </title>
+    <link rel="stylesheet" href="css/userdashboard.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <nav class="glass-nav">
+  <div class="nav-container">
+    <div class="logo">FundHub</div>
+    <div class="menu-toggle">☰</div>
+    <div class="nav-links">
+      <a  href="index.html">Home</a>
+      <a  href="campagins.html">Campaigns</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-buttons">
+    <a href="./register.html" class="signup">Sign Up</a>
+    <a href="./login.html" class="login">Login</a>
+    </div>
+  </div>
+ </nav>
+
+    <main class="main-content">
+        <header class="welcome-header">
+            <div>
+                <h1>Welcome back</h1>
+                <p>Your editorial contributions have supported 14 independent creators this month. Keep building the future of storytelling.</p>
+            </div>
+            <button id="createCampaignBtn" class="create-campaign-btn">Create New Campaign</button>
+            <div id="newCampaignForm" style="display:none;">
+    <input type="text" id="campaignTitle" placeholder="Title">
+    <textarea id="campaignDescription" placeholder="Description"></textarea>
+    <input type="number" id="campaignGoal" placeholder="Goal">
+    <input type="date" id="campaignDeadline">
+    <select id="campaignCategory">
+            <option value="">Select Category</option>
+            <option value="Community">Community</option>
+            <option value="Arts">Arts</option>
+            <option value="Education">Education</option>
+            <option value="Health">Health</option>
+        </select>
+    <input type="file" id="campaignImage" accept="image/*">
+    <img id="imagePreview" style="display:none; width:100%; max-height:200px; object-fit:cover; margin-top:10px; border-radius:8px;">
+    <button id="saveCampaignBtn" type="button">Save Campaign</button>
+</div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-overview">
+      <div class="stat-card">
+    <span>Active Campaigns</span>
+    <span class="stat-number" id="activeCampaigns">0</span>
+</div>
+<div class="stat-card">
+    <span>Total Pledged</span>
+    <span class="stat-number" id="totalPledged">$0</span>
+</div>
+        </div>
+
+        <!-- My Campaigns -->
+        <section class="campaigns-section">
+            <div class="section-header">
+                <h2>My Campaigns</h2>
+                <button id="viewAllBtn">View All →</button>
+                <button id="allCampaignsBtn">All Campaigns</button>
+                <button id="myCampaignsBtn">My Campaigns</button>
+            </div>
+            <div class="campaigns-grid" id="campaignsGrid">
+                <!-- Campaign cards will be inserted here by JS -->
+            </div>
+        </section>
+
+        <!-- Pledge History -->
+        <section class="pledge-history">
+            <div class="section-header">
+                <h2>My Pledge History</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campaign</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pledgeTableBody">
+                        <!-- Table rows will be inserted by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/userdashboard.js"></script>
+</body>
+</html>

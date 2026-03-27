@@ -1,0 +1,451 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #2d3335;
+}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; }
+.glass-nav {
+  position: fixed;
+  top:0;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 110, 37, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #006e25;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #006e25;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #006e25;
+  color: #006e25;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  background-color: #218838;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-buttons .login {
+  border: 1px solid #006e25;
+  color: #006e25;
+  background: transparent;
+}
+ 
+.nav-buttons .login:hover {
+  background: rgba(0,110,37,0.08);
+}
+ 
+.nav-buttons .signup {
+  border: 1px solid #218838;
+  background: #218838;
+  color: white;
+}
+ 
+.nav-buttons .signup:hover {
+  background: #19692c;
+  transform: translateY(-1px);
+}
+ 
+.nav-buttons-mobile {
+  display: none;
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Create Campaign */
+.create-campaign-btn {
+    background: #218838;      
+    color: #fff;               
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.create-campaign-btn:hover {
+    background:#19692c;    
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.create-campaign-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+.main-content { padding: 80px 20px 40px; max-width: 1200px; margin: 0 auto; }
+
+/* Welcome header */
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+.welcome-header h1 { font-size: 2.5rem; margin: 0 0 10px 0; }
+.welcome-header p { color: #555; max-width: 600px; }
+
+/* Stats overview */
+.stats-overview {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    background: #fff;
+    flex: 1;
+    min-width: 150px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+.stat-card span { display: block; }
+.stat-number { font-size: 2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #19692c; }
+
+/* Campaigns grid */
+.campaigns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.campaign-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.campaign-card .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.campaign-card .card-no-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.campaign-card .card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campaign-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.campaign-card .card-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+  overflow: hidden;
+}
+
+.campaign-card .card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.campaign-card .card-goal {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #19692c;
+}
+
+.campaign-card .card-deadline {
+  font-size: 0.8rem;
+  color: #888;
+  background: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Pledge history table */
+.table-container { 
+  overflow-x: auto;
+  background: #fff;
+   border-radius: 12px;
+    padding: 10px;
+ }
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+th, td { 
+  padding: 12px 8px;
+  text-align: left;
+}
+th { 
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #555; 
+  border-bottom: 1px solid #ddd;
+ }
+tr:hover { background: #f1f4f5; }
+
+/* view all button */
+#viewAllBtn {
+  background: #208939;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#viewAllBtn:hover {
+  text-decoration: underline;
+}
+#myCampaignsBtn {
+  background: #208939;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#myCampaignsBtn:hover {
+  text-decoration: underline;
+}
+#allCampaignsBtn {
+  background: #208939;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#allCampaignsBtn:hover {
+  text-decoration: underline;
+}
+/* form container */
+#newCampaignForm {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+#campaignTitle,
+#campaignGoal,
+#campaignDeadline {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* textarea */
+#campaignDescription {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+/* file input */
+#campaignImage {
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+/* image preview */
+#imagePreview {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+/* category dropdown */
+#campaignCategory {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#campaignCategory:hover {
+    border-color: #218838;
+}
+
+#campaignCategory:focus {
+    outline: none;
+    border-color: #218838;
+    box-shadow: 0 0 0 2px rgba(33, 136, 56, 0.2);
+}
+/* save button */
+#saveCampaignBtn {
+    background-color: #218838;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#saveCampaignBtn:hover {
+    background-color: #19692c;
+}
+.button-group {
+    display: flex;
+    gap: 5px; 
+    margin-top: 5px;
+}
+
+.button-group button {
+    background-color: #19692c;
+    color: white; 
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.button-group button:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+
+.menu-toggle {
+  display: block;
+  color: #006e25;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    display: none;
+  }
+
+  .nav-container.active .nav-links {
+    display: flex;
+  }
+
+  .nav-container.active .nav-buttons {
+    display: flex;
+  }
+}

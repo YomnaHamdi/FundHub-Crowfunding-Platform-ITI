@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaigns - FundHub</title>
+  <link rel="stylesheet" href="css/campagins.css" />
+</head>
+<body>
+
+  <nav class="glass-nav">
+    <div class="nav-container">
+      <div class="logo">FundHub</div>
+      <div class="menu-toggle">☰</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="#">Campaigns</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="nav-buttons">
+        <a href="./register.html" class="signup">Sign Up</a>
+        <a href="./login.html" class="login">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Discover the Stories <span>That Need Your Voice.</span></h1>
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for causes, creators, or keywords..." />
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="Community">Community</option>
+        <option value="Arts">Arts</option>
+        <option value="Education">Education</option>
+        <option value="Health">Health</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="cards-section">
+
+    <div id="loadingMsg" style="text-align:center; padding: 40px; font-size: 16px; color: #777;">
+      ⏳ Loading campaigns...
+    </div>
+    <div id="emptyMsg" style="display:none; text-align:center; padding: 40px; font-size: 16px; color: #999;">
+      No campaigns found.
+    </div>
+
+    <div id="errorMsg" style="display:none; text-align:center; padding: 40px; font-size: 16px; color: #e74c3c;">
+      ❌ Error loading campaigns. Make sure json-server is running.
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+    <div class="pagination" id="pagination"></div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <h4>Empathetic Editorial</h4>
+        <p>Crafting narratives that matter. A crowdfunding experience designed for the human story.</p>
+      </div>
+
+      <div class="footer-links">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h5>About</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h5>Newsletter</h5>
+        <p>Stay updated with the latest stories.</p>
+        <div class="newsletter-form">
+          <input type="email" id="emailInput" placeholder="email@address.com" />
+          <button id="subscribeBtn">›</button>
+        </div>
+      </div>
+
+    </div>
+    <p class="footer-copy">© 2026 Empathetic Editorial. All rights reserved.</p>
+  </footer>
+
+  <script src="js/campagins.js"></script>
+</body>
+</html>
