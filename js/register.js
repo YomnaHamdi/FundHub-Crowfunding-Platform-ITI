@@ -5,16 +5,16 @@ document.getElementById("registerForm").addEventListener("submit", async functio
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm_password").value;
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!name || !email || !password || !confirmPassword) {
     alert("Please fill all fields");
     return;
   }
 
-  if (!email.includes("@")) {
-    alert("Invalid email format");
-    return;
-  }
+if (!emailRegex.test(email)) {
+  alert("Invalid email format");
+  return;
+}
 
   if (password.length < 6) {
     alert("Password must be at least 6 characters");
