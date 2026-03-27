@@ -109,7 +109,7 @@ function deleteCampaign(c, row) {
     .then(() => row.remove());
 }
 const pledgeBody = document.getElementById("pledgeBody");
-
+//pledges
 function getPledges() {
     Promise.all([
         fetch(API + "/pledges").then(res => res.json()),

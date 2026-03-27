@@ -8,7 +8,7 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <nav class="glass-nav">
+    <nav class="nav">
   <div class="nav-container">
     <div class="logo">FundHub</div>
     <div class="menu-toggle">☰</div>
@@ -50,9 +50,9 @@
 </div>
         </header>
 
-        <!-- Stats -->
-        <div class="stats-overview">
-      <div class="stat-card">
+  <!-- Stats -->
+    <div class="stats-overview">
+    <div class="stat-card">
     <span>Active Campaigns</span>
     <span class="stat-number" id="activeCampaigns">0</span>
 </div>
@@ -60,41 +60,41 @@
     <span>Total Pledged</span>
     <span class="stat-number" id="totalPledged">$0</span>
 </div>
+</div>
+
+  <!-- My Campaigns -->
+    <section class="campaigns-section">
+      <div class="section-header">
+          <h2>My Campaigns</h2>
+            <button id="viewAllBtn">View All →</button>
+            <button id="allCampaignsBtn">All Campaigns</button>
+            <button id="myCampaignsBtn">My Campaigns</button>
         </div>
+        <div class="campaigns-grid" id="campaignsGrid">
+          <!-- Campaign cards will be inserted here by JS -->
+        </div>
+    </section>
 
-        <!-- My Campaigns -->
-        <section class="campaigns-section">
-            <div class="section-header">
-                <h2>My Campaigns</h2>
-                <button id="viewAllBtn">View All →</button>
-                <button id="allCampaignsBtn">All Campaigns</button>
-                <button id="myCampaignsBtn">My Campaigns</button>
-            </div>
-            <div class="campaigns-grid" id="campaignsGrid">
-                <!-- Campaign cards will be inserted here by JS -->
-            </div>
-        </section>
-
-        <!-- Pledge History -->
-        <section class="pledge-history">
-            <div class="section-header">
-                <h2>My Pledge History</h2>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Campaign</th>
-                            <th>Date</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pledgeTableBody">
-                        <!-- Table rows will be inserted by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+  <!-- Pledge History -->
+    <section class="pledge-history">
+      <div class="section-header">
+          <h2>My Pledge History</h2>
+      </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Campaign</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="pledgeTableBody">
+              <!-- Table rows will be inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+    </section>
     </main>
 
     <script src="js/userdashboard.js"></script>

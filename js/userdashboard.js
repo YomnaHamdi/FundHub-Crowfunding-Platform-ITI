@@ -21,29 +21,28 @@ document.addEventListener("DOMContentLoaded", function () {
     let showAll = false;
     let currentMode = "all";
 
-    createBtn.onclick = () => form.style.display = form.style.display === "block" ? "none" : "block";
-    myCampaignsBtn.onclick = () => getCampaigns("mine");
-    allCampaignsBtn.onclick = () => getCampaigns("all");
+createBtn.onclick = () => form.style.display = form.style.display === "block" ? "none" : "block";
+myCampaignsBtn.onclick = () => getCampaigns("mine");
+allCampaignsBtn.onclick = () => getCampaigns("all");
 
-    imageInput.onchange = () => {
-        const file = imageInput.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = e => { preview.src = e.target.result; preview.style.display = "block"; };
-        reader.readAsDataURL(file);
-    };
+  imageInput.onchange = () => {
+    const file = imageInput.files[0];
+      if (!file) return;
+    const reader = new FileReader();
+      reader.onload = e => { preview.src = e.target.result; preview.style.display = "block"; };
+      reader.readAsDataURL(file);
+  };
 
-    saveBtn.onclick = () => {
-        const title = document.getElementById("campaignTitle").value;
-        const desc = document.getElementById("campaignDescription").value;
-        const goal = document.getElementById("campaignGoal").value;
-        const deadline = document.getElementById("campaignDeadline").value;
-        const category = document.getElementById("campaignCategory").value;
-        if (!title || !desc || !goal || !deadline || !category) { alert("Fill all fields"); return; }
+  saveBtn.onclick = () => {
+      const title = document.getElementById("campaignTitle").value;
+      const desc = document.getElementById("campaignDescription").value;
+      const goal = document.getElementById("campaignGoal").value;
+      const deadline = document.getElementById("campaignDeadline").value;
+      const category = document.getElementById("campaignCategory").value;
+      if (!title || !desc || !goal || !deadline || !category) { alert("Fill all fields"); return; }
 
-        const newCampaign = { title, description: desc, goal, deadline, category, creatorId: currentUserId, image: "" };
-
-        const file = imageInput.files[0];
+      const newCampaign = { title, description: desc, goal, deadline, category, creatorId: currentUserId, image: "" };
+      const file = imageInput.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = e => { newCampaign.image = e.target.result; sendCampaign(newCampaign); };
@@ -53,41 +52,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    function sendCampaign(data) {
-        fetch(API_URL + "/campaigns", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        }).then(res => res.json())
-          .then(() => { alert("Campaign Added!"); form.style.display = "none"; getCampaigns(currentMode); });
-    }
+  function sendCampaign(data) {
+      fetch(API_URL + "/campaigns", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(res => res.json())
+        .then(() => { alert("Campaign Added!"); form.style.display = "none"; getCampaigns(currentMode); });
+  }
 
-    function getCampaigns(mode) {
-        currentMode = mode;
-        const url = mode === "mine" ? API_URL + "/campaigns?creatorId=" + currentUserId : API_URL + "/campaigns";
-        fetch(url)
-        .then(res => res.json())
-        .then(data => { campaigns = data; showAll = false; showCampaigns(); updateStats(); });
-    }
+  function getCampaigns(mode) {
+      currentMode = mode;
+      const url = mode === "mine" ? API_URL + "/campaigns?creatorId=" + currentUserId : API_URL + "/campaigns";
+      fetch(url)
+      .then(res => res.json())
+      .then(data => { campaigns = data; showAll = false; showCampaigns(); updateStats(); });
+  }
 
-    function getPledges() {
-        fetch(API_URL + "/pledges")
-        .then(res => res.json())
-        .then(data => {
-            const userPledges = data.filter(p => p.userId == currentUserId);
-            pledgeBody.innerHTML = "";
-            if (!userPledges.length) {
-                pledgeBody.innerHTML = "<tr><td colspan='3'>No pledges yet</td></tr>";
-            } else {
-                userPledges.forEach(p => {
-                    const c = campaigns.find(camp => camp.id == p.campaignId);
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${c ? c.title : p.campaignId}</td>
-                        <td>${new Date(p.date || Date.now()).toLocaleDateString()}</td>
-                        <td>$${p.amount}</td>`;
-                    pledgeBody.appendChild(row);
-                });
+  function getPledges() {
+      fetch(API_URL + "/pledges")
+      .then(res => res.json())
+      .then(data => {
+        const userPledges = data.filter(p => p.userId == currentUserId);
+        pledgeBody.innerHTML = "";
+        if (!userPledges.length) {
+            pledgeBody.innerHTML = "<tr><td colspan='3'>No pledges yet</td></tr>";
+        } else {
+          userPledges.forEach(p => {
+              const c = campaigns.find(camp => camp.id == p.campaignId);
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                  <td>${c ? c.title : p.campaignId}</td>
+                  <td>${new Date(p.date || Date.now()).toLocaleDateString()}</td>
+                  <td>$${p.amount}</td>`;
+                  pledgeBody.appendChild(row);
+              });
             }
         });
     }

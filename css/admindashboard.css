@@ -424,22 +424,22 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .nav-links {
-    width: 100%;
-    flex-direction: column;
-    display: none;
-    text-align: center;
-    margin-top: 15px;
-  }
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+.nav-links {
+  width: 100%;
+  flex-direction: column;
+  display: none;
+  text-align: center;
+  margin-top: 15px;
+}
+.stats-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
 
-  .footer-inner {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    padding: 2rem 1.5rem;
-  }
+.footer-inner {
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
 }

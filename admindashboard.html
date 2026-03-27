@@ -35,76 +35,76 @@
       <p>Manage platform users and campaign approvals from a centralized interface.</p>
     </div>
 
-    <!-- ===== Users Section ===== -->
-    <section>
-      <div class="section-header">
-        <h2>All Users</h2>
-      </div>
+  <!-- ===== Users Section ===== -->
+  <section>
+    <div class="section-header">
+      <h2>All Users</h2>
+    </div>
 
-      <div class="table-wrapper">
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th class="text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="usersTableBody">
-            </tbody>
-          </table>
+    <div class="table-wrapper">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Campaigns Section ===== -->
+  <section>
+    <div class="section-header">
+      <h2>All Campaigns</h2>
+    </div>
+
+  <div class="table-wrapper">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Owner</th>
+            <th>Amount Raised</th>
+            <th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="campaignsTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+  <!-- Pledge History -->
+    <section class="pledge-history">
+        <div class="section-header">
+            <h2>All Pledge History</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== Campaigns Section ===== -->
-    <section>
-      <div class="section-header">
-        <h2>All Campaigns</h2>
-      </div>
-
-      <div class="table-wrapper">
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Owner</th>
-                <th>Amount Raised</th>
-                <th class="text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="campaignsTableBody">
-            </tbody>
-          </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                     </tr>
+                </thead>
+                <tbody id="pledgeBody">
+                    <!-- Table rows will be inserted by JS -->
+                </tbody>
+            </table>
         </div>
-      </div>
     </section>
-    <!-- Pledge History -->
-        <section class="pledge-history">
-            <div class="section-header">
-                <h2>All Pledge History</h2>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Campaign</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pledgeBody">
-                        <!-- Table rows will be inserted by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
   </main>
 
   <!-- ===== Footer ===== -->
