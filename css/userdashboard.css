@@ -80,17 +80,6 @@ button { cursor: pointer; border: none; }
   background: rgba(0,110,37,0.08);
 }
  
-.nav-buttons .signup {
-  border: 1px solid #218838;
-  background: #218838;
-  color: white;
-}
- 
-.nav-buttons .signup:hover {
-  background: #19692c;
-  transform: translateY(-1px);
-}
- 
 .nav-buttons-mobile {
   display: none;
 }

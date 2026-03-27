@@ -6,7 +6,11 @@ if (!admin) window.location.href = "login.html";
 document.getElementById('menuToggle')?.addEventListener('click', () => {
   document.getElementById('navLinks')?.classList.toggle('open');
 });
-
+document.getElementById("logoutBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+});
 window.addEventListener('load', () => {
   loadData('/users', 'usersTableBody', buildUserRow);
   loadData('/campaigns', 'campaignsTableBody', buildCampaignRow);

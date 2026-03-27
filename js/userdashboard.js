@@ -3,7 +3,11 @@ const currentUser = JSON.parse(localStorage.getItem("user"));
 const currentUserId = currentUser ? currentUser.id : null;
 
 document.addEventListener("DOMContentLoaded", function () {
-
+  document.getElementById("logoutBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+});
     const createBtn = document.getElementById("createCampaignBtn");
     const form = document.getElementById("newCampaignForm");
     const saveBtn = document.getElementById("saveCampaignBtn");
