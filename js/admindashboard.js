@@ -113,36 +113,35 @@ function deleteCampaign(c, row) {
     .then(() => row.remove());
 }
 const pledgeBody = document.getElementById("pledgeBody");
-//pledges
-function getPledges() {
-    Promise.all([
-        fetch(API + "/pledges").then(res => res.json()),
-        fetch(API + "/campaigns").then(res => res.json())
-    ]).then(([pledges, campaigns]) => {
-        if (!pledges.length) {
-            pledgeBody.innerHTML = "<tr><td colspan='4'>No pledges yet</td></tr>";
-            return;
-        }
-        const totals = {};
-        pledges.forEach(p => {
-            if (!totals[p.campaignId]) totals[p.campaignId] = 0;
-            totals[p.campaignId] += parseFloat(p.amount);
-        });
 
-        pledgeBody.innerHTML = "";
-        pledges.forEach(p => {
-            const camp = campaigns.find(c => c.id === p.campaignId);
-            const status = camp && totals[p.campaignId] >= camp.goal ? "Completed" : "In Progress";
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${p.campaignId}</td>
-                <td>${new Date(p.date || Date.now()).toLocaleDateString()}</td>
-                <td>${status}</td>
-                <td>$${p.amount}</td>
-            `;
-            pledgeBody.appendChild(row);
-        });
+async function getPledgesAsync() {
+    const pledges = await fetch(API + "/pledges").then(res => res.json());
+    const campaigns = await fetch(API + "/campaigns").then(res => res.json());
+
+    if (!pledges.length) {
+        pledgeBody.innerHTML = "<tr><td colspan='4'>No pledges yet</td></tr>";
+        return;
+    }
+
+    const totals = {};
+    pledges.forEach(p => {
+        if (!totals[p.campaignId]) totals[p.campaignId] = 0;
+        totals[p.campaignId] += parseFloat(p.amount);
+    });
+
+    pledgeBody.innerHTML = "";
+    pledges.forEach(p => {
+        const camp = campaigns.find(c => c.id === p.campaignId);
+        const status = camp && totals[p.campaignId] >= camp.goal ? "Completed" : "In Progress";
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${p.campaignId}</td>
+            <td>${new Date(p.date || Date.now()).toLocaleDateString()}</td>
+            <td>${status}</td>
+            <td>$${p.amount}</td>
+        `;
+        pledgeBody.appendChild(row);
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => getPledges());;    
+document.addEventListener("DOMContentLoaded", () => getPledgesAsync());
